@@ -13,8 +13,8 @@ module.exports = {
     }
   },
   devServer: {
-    host: 'localhost',
-    port: 80,
+    // host: 'localhost',
+    // port: 80,
     disableHostCheck: true,
     open: process.platform === 'darwin',
     proxy: {

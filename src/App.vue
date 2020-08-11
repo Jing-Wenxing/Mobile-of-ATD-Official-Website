@@ -2,10 +2,13 @@
   <div id="app">
     <transition name="fade"
                 mode="out-in">
-      <router-view />
+      <router-view class="content" />
     </transition>
 
-    <van-tabbar v-model="active"
+    <van-tabbar class="tabbar"
+                ref="tabbar"
+                v-model="active"
+                :class="hidshow?'':'dianone'"
                 active-color="#294D7C"
                 inactive-color="#C0C8D3">
       <van-tabbar-item v-if="active!=0"
@@ -46,14 +49,33 @@
   </div>
 </template>
 
-
 <script>
 export default {
   data () {
     return {
       active: 0,
+      docmHeight: document.documentElement.clientHeight,  //默认屏幕高度
+      showHeight: document.documentElement.clientHeight,   //实时屏幕高度
+      hidshow: true  //显示或者隐藏footer
     };
   },
+  mounted () {
+    // window.onresize监听页面高度的变化
+    window.onresize = () => {
+      return (() => {
+        this.showHeight = document.body.clientHeight;
+      })()
+    }
+  },
+  watch: {
+    showHeight () {
+      if (this.docmHeight > this.showHeight) {
+        this.hidshow = false
+      } else {
+        this.hidshow = true
+      }
+    }
+  }
 };
 </script>
 
@@ -62,21 +84,38 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+
+  height: 100vh;
+  background: #f0f0f0;
+}
+
+.content {
+  height: calc(100vh - 50px);
+  overflow-y: scroll;
+}
+
+.dianone {
+  display: none !important;
 }
 
 .fade-enter {
   opacity: 0;
 }
+
 .fade-leave {
   opacity: 1;
 }
+
 .fade-enter-active {
-  transition: opacity 0.25s;
+  transition: opacity 0.1s;
 }
+
 .fade-leave-active {
   opacity: 0;
   transition: opacity 0.1s;
+}
+
+.tabbar {
+  margin-top: 50px;
 }
 </style>
