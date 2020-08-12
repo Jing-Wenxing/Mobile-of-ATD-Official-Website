@@ -10,6 +10,11 @@ const routes = [
     component: () => import('../views/Home/Home')
   },
   {
+    path: '/search/home',
+    name: 'Search_Home',
+    component: () => import('../views/Home/Search')
+  },
+  {
     path: '/association',
     name: 'Association',
     component: () => import('../views/Association/Association')
@@ -28,6 +33,17 @@ const routes = [
     path: '/personal',
     name: 'Personal',
     component: () => import('../views/Personal/Personal')
+  },
+  // 公共页面
+  {
+    path: '/video/play',
+    name: 'Video_play',
+    component: () => import('../components/Video/video_playpage')
+  },
+  {
+    path: '/software/download',
+    name: 'Video_play',
+    component: () => import('../components/Software/software_download')
   },
 ]
 

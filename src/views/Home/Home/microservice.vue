@@ -5,7 +5,7 @@
                     class="notice-swipe"
                     background="#ffffff"
                     @click="tosoftware">
-      软件专区
+      微服务专区
     </van-notice-bar>
 
     <div class="softwarecontent">
@@ -14,16 +14,20 @@
                  span="12"
                  v-for="item in software_content"
                  :key="item.id">
-          <img class="software-image"
-               src="https://pic.gksec.com/2020/08/10/05564be60ae6a/pexels-roberto-nickson-2762179.jpg">
-          <div class="software-property">
-            <p class="software-text">
-              <span class="software-text-item">软件</span>
-              <span class="software-text-item">
-                <van-icon name="down"
-                          style="margin-right: 2.5px;" />233
-              </span>
-            </p>
+          <div class="softwarecontent">
+            <img class="software-image"
+                 src="https://pic.gksec.com/2020/08/10/05564be60ae6a/pexels-roberto-nickson-2762179.jpg">
+          </div>
+          <div class="softwarecontent">
+            <div class="software-property">
+              <p class="software-text">
+                <span class="software-text-item">微服务名称</span>
+                <span class="software-text-item">
+                  <van-icon name="fire-o"
+                            style="margin-right: 2.5px;" />233
+                </span>
+              </p>
+            </div>
           </div>
         </van-col>
       </van-row>
@@ -40,7 +44,7 @@ export default {
   },
   methods: {
     tosoftware () {
-      console.log('软件视频页')
+      console.log('转到视频页')
     }
   },
 }

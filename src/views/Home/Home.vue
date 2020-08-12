@@ -12,14 +12,14 @@
 </template>
 
 <script>
-import search from './component/search'
-import swiper from './component/swiper'
-import notice from './component/notice'
-import fastcard from './component/fast_card'
-import action from './component/action'
-import videos from './component/videos'
-import software from './component/software'
-import microservice from './component/microservice'
+import search from './Home/searchtop'
+import swiper from './Home/swiper'
+import notice from './Home/notice'
+import fastcard from './Home/fast_card'
+import action from './Home/action'
+import videos from './Home/videos'
+import software from './Home/software'
+import microservice from './Home/microservice'
 
 export default {
   components: {

@@ -26,8 +26,14 @@ export default {
     };
   },
   methods: {
-    onSearch (val) {
-      console.log(this.value)
+    onSearch () {
+      if (this.value != '')
+        this.$router.push({
+          path: '/search/home',
+          query: {
+            value: this.value
+          }
+        })
     },
   },
   created () {

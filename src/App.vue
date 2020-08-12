@@ -2,7 +2,8 @@
   <div id="app">
     <transition name="fade"
                 mode="out-in">
-      <router-view class="content" />
+      <router-view class="appcontent"
+                   :class="appcontentse?'':'appcontentse'" />
     </transition>
 
     <van-tabbar class="tabbar"
@@ -56,7 +57,8 @@ export default {
       active: 0,
       docmHeight: document.documentElement.clientHeight,  //默认屏幕高度
       showHeight: document.documentElement.clientHeight,   //实时屏幕高度
-      hidshow: true  //显示或者隐藏footer
+      hidshow: true,  //显示或者隐藏footer
+      appcontentse: true
     };
   },
   mounted () {
@@ -71,8 +73,10 @@ export default {
     showHeight () {
       if (this.docmHeight > this.showHeight) {
         this.hidshow = false
+        this.appcontentse = false
       } else {
         this.hidshow = true
+        this.appcontentse = true
       }
     }
   }
@@ -81,7 +85,6 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -89,8 +92,13 @@ export default {
   background: #f0f0f0;
 }
 
-.content {
+.appcontent {
   height: calc(100vh - 50px);
+  overflow-y: scroll;
+}
+
+.appcontentse {
+  height: 100vh;
   overflow-y: scroll;
 }
 

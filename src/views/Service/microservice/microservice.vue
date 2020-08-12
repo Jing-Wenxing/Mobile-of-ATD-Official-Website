@@ -1,9 +1,10 @@
 <template>
-  <div>233</div>
+  <div>
+    微服务
+  </div>
 </template>
 
 <script>
-
 export default {
 
 }
