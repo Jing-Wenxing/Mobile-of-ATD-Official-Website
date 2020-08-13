@@ -16,7 +16,7 @@
                     shape="round"
                     background="#294D7C"
                     @search="onSearch"
-                    placeholder="请输入搜索关键词" />
+                    :placeholder="option_value=='0'?'搜索视频':option_value=='1'?'搜索软件':'搜索微服务'" />
       </van-col>
       <van-col class="serach-button"
                span="4">
@@ -86,8 +86,15 @@ export default {
     };
   },
   methods: {
-    onSearch (val) {
-      console.log(this.value)
+    onSearch () {
+      if (this.value != '')
+        this.$router.push({
+          path: '/service/search',
+          query: {
+            value: this.value,
+            classification: this.option_value
+          }
+        })
     },
     service_change_state () {
       this.show = true

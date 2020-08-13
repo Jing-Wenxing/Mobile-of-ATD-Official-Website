@@ -1,8 +1,9 @@
 <template>
   <div>
-    <search :isvideo="true"
-            :issoftware="true"
-            :ismicroservice="true"></search>
+    <search :isvideo="classification=='0'"
+            :issoftware="classification=='1'"
+            :ismicroservice="classification=='2'"></search>
+    233
   </div>
 </template>
 
@@ -15,7 +16,8 @@ export default {
   },
   data () {
     return {
-      value: ''
+      value: '',
+      classification: null,
     };
   },
   methods: {
@@ -25,6 +27,7 @@ export default {
   },
   created () {
     this.value = this.$route.query.value
+    this.classification = this.$route.query.classification
   }
 }
 </script>

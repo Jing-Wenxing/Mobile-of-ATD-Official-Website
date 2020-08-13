@@ -1,14 +1,123 @@
 <template>
-  <div>
-    视频
+  <div class="videobottom">
+    <van-notice-bar color="#2B2C30"
+                    class="notice-swipe"
+                    background="#ffffff">
+      热门视频
+    </van-notice-bar>
+
+    <videopreview class="videobottom"
+                  :column="false"
+                  :videodata="this.invideo_content"></videopreview>
+
+    <van-notice-bar mode="link"
+                    color="#2B2C30"
+                    class="notice-swipe"
+                    background="#ffffff"
+                    @click="tovideobase">
+      编程基础
+    </van-notice-bar>
+
+    <videopreview class="videobottom"
+                  :column="false"
+                  :videodata="this.invideo_content"></videopreview>
+
+    <van-notice-bar mode="link"
+                    color="#2B2C30"
+                    class="notice-swipe"
+                    background="#ffffff"
+                    @click="tovideotopic">
+      题目讲解
+    </van-notice-bar>
+
+    <videopreview class="videobottom"
+                  :column="false"
+                  :videodata="this.invideo_content"></videopreview>
+
+    <van-notice-bar mode="link"
+                    color="#2B2C30"
+                    class="notice-swipe"
+                    background="#ffffff"
+                    @click="tovideoother">
+      其他视频
+    </van-notice-bar>
+
+    <videopreview class="videobottom"
+                  :column="false"
+                  :videodata="this.invideo_content"></videopreview>
   </div>
 </template>
 
 <script>
-export default {
+import videopreview from '@/components/Video/video_preview'
 
+export default {
+  components: {
+    videopreview,
+  },
+  data () {
+    return {
+      invideo_content: [
+        {
+          videoid: '10001',
+          imgurl: 'https://pic.gksec.com/2020/08/10/05564be60ae6a/pexels-roberto-nickson-2762179.jpg',
+          title: '视频名称',
+          author: '作者',
+          activity: '233',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+          videourl: 'http://jingwenxing.top/23333.mp4'
+        },
+        {
+          videoid: '10002',
+          imgurl: 'https://pic.gksec.com/2020/08/10/05564be60ae6a/pexels-roberto-nickson-2762179.jpg',
+          title: '视频名称',
+          author: '作者',
+          activity: '233',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+          videourl: 'http://jingwenxing.top/Marvel.mp4'
+        },
+        {
+          videoid: '10003',
+          imgurl: 'https://pic.gksec.com/2020/08/10/05564be60ae6a/pexels-roberto-nickson-2762179.jpg',
+          title: '视频名称',
+          author: '作者',
+          activity: '233',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+          videourl: 'http://jingwenxing.top/Marvel.mp4'
+        },
+        // {
+        //   videoid: '10004',
+        //   imgurl: 'https://pic.gksec.com/2020/08/10/05564be60ae6a/pexels-roberto-nickson-2762179.jpg',
+        //   title: '视频名称',
+        //   author: '作者',
+        //   activity: '233',
+        //   videourl: 'http://jingwenxing.top/Marvel.mp4'
+        // },
+      ]
+    };
+  },
+  methods: {
+    tovideobase () {
+      this.$router.push({
+        path: '/service/video/base',
+      })
+    },
+    tovideotopic () {
+      this.$router.push({
+        path: '/service/video/topic',
+      })
+    },
+    tovideoother () {
+      this.$router.push({
+        path: '/service/video/other',
+      })
+    },
+  },
 }
 </script>
 
 <style>
+.videobottom {
+  margin-bottom: 10px;
+}
 </style>

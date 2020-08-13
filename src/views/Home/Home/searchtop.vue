@@ -29,7 +29,7 @@ export default {
     onSearch () {
       if (this.value != '')
         this.$router.push({
-          path: '/search/home',
+          path: '/home/search',
           query: {
             value: this.value
           }

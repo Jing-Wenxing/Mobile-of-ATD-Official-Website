@@ -117,7 +117,7 @@ export default {
 | :-------: | :--------------------------: |
 | videodata | 数组中的键值对应与示例中一致 |
 
-### videopreviewitem
+### video_preview_item
 
 #### 示例使用
 
@@ -164,34 +164,35 @@ export default {
 | :-------: | :----------------------------------------------------------: |
 | videodata | 数据为单个对象，键值对应与示例中一致。本组件一般与 **video_preview** 连用，从上级目录中获取 |
 
-### video_preview
+### software_preview
 
 #### 示例使用
 
 ```vue
 <template>
-  <videopreview :column="false"
-                :videodata="this.invideo_content"></videopreview>
+  <softwarepreview :column="false"
+                   :softwaredata="this.insoftware_content"></softwarepreview>
 </template>
 
 <script>
-import videopreview from '@/components/Video/video_preview'
+import softwarepreview from '@/components/Software/software_preview'
 
 export default {
   components: {
-    videopreview,
+    softwarepreview,
   },
   data () {
     return {
       invideo_content: [
         {
-          videoid: '视频编号',
+          softwareid: '软件编号',
           imgurl: '封面地址',
           title: '视频名称',
-          author: '作者',
-          activity: '播放量',
+          subtitle: '副标题',
+          activity: '下载量',
           description: '文案说明',
-          videourl: '视频地址'
+          videourl: '视频地址',
+          activityitem: [评分数组]
         },
       ]
     };
@@ -205,42 +206,44 @@ export default {
 |   参数    |      说明      |  类型   | 默认值 |
 | :-------: | :------------: | :-----: | :----: |
 |  column   |  行列布局转换  | boolean |   -    |
-| videodata | 视频信息的数据 | object  |   -    |
+| softwaredata | 软件信息的数据 | object  |   -    |
 
 #### 备注说明
 
 |   参数    |             说明             |
 | :-------: | :--------------------------: |
-| videodata | 数组中的键值对应与示例中一致 |
+| softwaredata | 数组中的键值对应与示例中一致 |
 
-### videopreviewitem
+### software_preview_item
 
 #### 示例使用
 
 ```vue
 <template>
-  <videopreviewitem :final="true"
-                    :videodata="invideo_content"></videopreviewitem>
+  <softwarepreviewitem :final="true"
+                       :softwaredata="invideo_content"></softwarepreviewitem>
 </template>
 
 <script>
-import videopreviewitem from '@/components/Video/video_preview_item'
+import softwarepreviewitem from '@/components/Software/software_preview_item'
 
 export default {
   components: {
-    videopreviewitem,
+    softwarepreviewitem,
   },
   data () {
     return {
-      invideo_content: {
-          videoid: '视频编号',
+      invideo_content: [
+        {
+          softwareid: '软件编号',
           imgurl: '封面地址',
           title: '视频名称',
-          author: '作者',
-          activity: '播放量',
+          subtitle: '副标题',
+          activity: '下载量',
           description: '文案说明',
-          videourl: '视频地址'
-      }
+          videourl: '视频地址',
+          activityitem: [评分数组]
+        },
     };
   },
 }
@@ -252,13 +255,145 @@ export default {
 |   参数    |      说明      |  类型   | 默认值 |
 | :-------: | :------------: | :-----: | :----: |
 |   final   |  组件尺寸转换  | boolean |   -    |
-| videodata | 视频信息的数据 | object  |   -    |
+| softwaredata | 视频信息的数据 | object  |   -    |
 
 #### 备注说明
 
 |   参数    |                             说明                             |
 | :-------: | :----------------------------------------------------------: |
-| videodata | 数据为单个对象，键值对应与示例中一致。本组件一般与 **video_preview** 连用，从上级目录中获取 |
+| softwaredata | 数据为单个对象，键值对应与示例中一致。本组件一般与 **software_preview** 连用，从上级目录中获取 |
+
+### microservice_preview
+
+#### 示例使用
+
+```vue
+M<template>
+  <microservicepreview :column="false"
+                   :microservicedata="this.inmicroservice_content"></microservicepreview>
+</template>
+
+<script>
+import microservicepreview from '@/components/Microservice/microservice_preview'
+
+export default {
+  components: {
+    microservicepreview,
+  },
+  data () {
+    return {
+      invideo_content: [
+        {
+          microserviceid: '微服务编号',
+          imgurl: '封面地址',
+          title: '视频名称',
+          subtitle: '副标题',
+          activity: '下载量',
+          description: '文案说明',
+          videourl: '视频地址',
+          activityitem: [评分数组]
+        },
+      ]
+    };
+  },
+}
+</script>
+```
+
+#### 参数说明
+
+|       参数       |       说明       |  类型   | 默认值 |
+| :--------------: | :--------------: | :-----: | :----: |
+|      column      |   行列布局转换   | boolean |   -    |
+| microservicedata | 微服务信息的数据 | object  |   -    |
+
+#### 备注说明
+
+|       参数       |             说明             |
+| :--------------: | :--------------------------: |
+| microservicedata | 数组中的键值对应与示例中一致 |
+
+### microservice_preview_item
+
+#### 示例使用
+
+```vue
+<template>
+  <microservicepreviewitem :final="true"
+                       :microservicedata="invideo_content"></microservicepreviewitem>
+</template>
+
+<script>
+import microservicepreviewitem from '@/components/M	icroservice/microservice_preview_item'
+
+export default {
+  components: {
+    microservicepreviewitem,
+  },
+  data () {
+    return {
+      invideo_content: [
+        {
+          microserviceid: '微服务编号',
+          imgurl: '封面地址',
+          title: '视频名称',
+          subtitle: '副标题',
+          activity: '下载量',
+          description: '文案说明',
+          videourl: '视频地址',
+          activityitem: [评分数组]
+        },
+    };
+  },
+}
+</script>
+```
+
+#### 参数说明
+
+|       参数       |      说明      |  类型   | 默认值 |
+| :--------------: | :------------: | :-----: | :----: |
+|      final       |  组件尺寸转换  | boolean |   -    |
+| microservicedata | 视频信息的数据 | object  |   -    |
+
+#### 备注说明
+
+|       参数       |                             说明                             |
+| :--------------: | :----------------------------------------------------------: |
+| microservicedata | 数据为单个对象，键值对应与示例中一致。本组件一般与 **microservice_preview** 连用，从上级目录中获取 |
+
+### search
+
+#### 示例使用
+
+```vue
+<template>
+  <search :isvideo="true"
+          :issoftware="true"
+          :ismicroservice="true"></search>
+</template>
+
+<script>
+import search from '@/components/Search/search'
+
+export default {
+ components: {
+    search,
+  },
+}
+</script>
+
+<style>
+</style>
+```
+
+#### 参数说明
+
+|    参数    |      说明      |  类型   | 默认值 |
+| :--------: | :------------: | :-----: | :----: |
+|  isvideo   |  启用视频搜索  | boolean |   -    |
+| issoftware | 启用软件搜索 | boolean  |   -    |
+| ismicroservice | 启用微服务搜索 | boolean  |   -    |
 
 ## 完成内容
 
@@ -278,11 +413,30 @@ export default {
 #### 软件部分
 
 - **【08.12】**：软件页预览列表组件
+
 - **【08.12】**：软件页预览单项组件
+
 - **【08.12】**：软件页下载页面
+
+#### 微服务部分
+
+  - **【08.13】**：微服务预览列表组件
+  - **【08.13】**：微服务预览单项组件
+  - **【08.13】**：微服务跳转页面
+
+#### 搜索部分
+
+  - **【08.13】**：搜索组件
 
 ### 首页
 
   - **【08.11】**：项目使用教程
   - **【08.11】**：首页初始页面的组件设计与布局
+  - **【08.13】**：首页内容基本完成（除轮播图跳转、活动页跳转、后端接入）
+
+### 服务
+
+#### 视频部分
+
+- **【08.13】**：内容基本完成（除后端接入）
 
